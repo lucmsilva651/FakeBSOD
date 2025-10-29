@@ -2,8 +2,10 @@ import { createApp } from 'vue';
 import { createI18n } from 'vue-i18n';
 import App from './App.vue';
 
+const userLocale = navigator.language.split('-')[0]; 
+
 const i18n = createI18n({
-  locale: 'pt',
+  locale: ['en', 'pt', 'es', 'fr'].includes(userLocale) ? userLocale : 'en',
   fallbackLocale: 'en',
   messages: {
     en: {
